@@ -9,17 +9,88 @@
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body class="switch" >
+  <body class="switch">
     <div class="frontpage">
-      <div class="header-search">
-        <img class="head" src="./images/Pokestats.png" alt="pokestats" />
-        <div class="searchbar">
-          <input class="search" placeholder="Who will you choose?" type="text" name="" id="" />
-          <button class="pika"><img src="./images/Detect.png" alt="" /></button>
+      <div class="main-header-search">
+        <img class="main-head" src="./images/Pokestats.png" alt="pokestats" />
+        <div class="main-searchbar">
+          <input
+            class="main-search"
+            placeholder="Who will you choose?"
+            type="text"
+            name=""
+            id=""
+          />
+          <button class="main-pika">
+            <img src="./images/Detect.png" alt="" />
+          </button>
         </div>
       </div>
-      <div class="switch-out">
     </div>
+    <div class="modal hidden">
+      <div class="modal-content">
+        <div class="row">
+          <div class="nav-container">
+            <div>
+              <img class="second-head" src="./images/Pokestats.png" alt="" />
+            </div>
+            <div class="second-searchbar">
+              <input
+                class="second-search"
+                placeholder="Who will you choose next?"
+                type="text"
+                name=""
+                id=""
+              />
+              <button class="second-pika">
+                <img src="./images/Detect.png" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="column-row">
+            <div class="new-column">
+              <div class="pokemon">
+                <div class="column-header">
+                  <div class="favorite">
+                    <button>
+                      <img src="./images/CloseHeart.jpeg" alt="" />
+                    </button>
+                  </div>
+                  <div class="close">
+                    <button><img src="./images/x2.png" alt="" /></button>
+                  </div>
+                </div>
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png"
+                  alt=""
+                />
+                <p>Drowzee</p>
+                <div class="table">
+                  <table>
+                    <tr>
+                      <td>HP:</td>
+                      <td>Atk:</td>
+                    </tr>
+                    <tr>
+                      <td>Spd:</td>
+                      <td>SpAtk:</td>
+                    </tr>
+                    <tr>
+                      <td>Def:</td>
+                      <td>SpDef:</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column-row">
+            <div class="new-column blue-column">sacatasion</div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>

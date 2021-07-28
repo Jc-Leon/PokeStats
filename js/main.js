@@ -1,13 +1,19 @@
-var $click = document.querySelector('.pika');
+var $click = document.querySelector(".main-pika");
+var $modal = document.querySelector(".modal");
 
-$click.addEventListener('click', function (event) {
+$click.addEventListener("click", function (event) {
   var screen = document.body;
-  var $main = document.querySelector('.header-search');
-  screen.classList.toggle('switch-out');
-  $main.classList.toggle('hide');
-});
+  var $main = document.querySelector(".main-header-search");
 
-var pikachu = getPokemonData('drowzee');
+  screen.classList.toggle("switch-out");
+  $main.classList.toggle("hidden");
+});
+function openModal(event) {
+  $modal.className = "modal";
+}
+$click.addEventListener("click", openModal);
+
+var pikachu = getPokemonData("drowzee");
 
 function Pokestat(stat, value) {
   this.stat = stat;
@@ -22,14 +28,14 @@ function Pokemonew(name, stats, sprite) {
 
 function getPokemonData(name) {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + name);
-  xhr.responseType = 'json';
-  xhr.addEventListener('load', function () {
+  xhr.open("GET", "https://pokeapi.co/api/v2/pokemon/" + name);
+  xhr.responseType = "json";
+  xhr.addEventListener("load", function () {
     console.log(xhr.status);
     console.log(xhr.response);
     var pokemonName = xhr.response.name;
     console.log(pokemonName);
-    var sprite = xhr.response.sprites.other['official-artwork'].front_default;
+    var sprite = xhr.response.sprites.other["official-artwork"].front_default;
     console.log(sprite);
     var stats = [];
     for (var i = 0; i < xhr.response.stats.length; i++) {
