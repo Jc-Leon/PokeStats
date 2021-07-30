@@ -1,7 +1,9 @@
 var $click = document.querySelector('.main-pika');
+var $newclick = document.querySelector('.second-pika');
 var $modal = document.querySelector('.modal');
 var $main = document.querySelector('.container');
 var $search = document.querySelector('.main-search');
+var $secondSearch = document.querySelector('.second-search');
 
 $search.addEventListener('search', searchFunction);
 
@@ -11,6 +13,16 @@ function searchFunction() {
 }
 
 $click.addEventListener('click', searchFunction);
+
+$secondSearch.addEventListener('search', newSearchFunction);
+
+function newSearchFunction() {
+  var searchValue = document.querySelector('.second-search');
+  getPokemonData(searchValue.value);
+  document.getElementById('refresh').value = '';
+}
+
+$newclick.addEventListener('click', newSearchFunction);
 
 $click.addEventListener('click', function (event) {
   var screen = document.body;
