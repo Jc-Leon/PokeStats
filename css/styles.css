@@ -150,7 +150,7 @@ table {
   border: none;
   background-color: rgba(225, 225, 225, 0.5);
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
 td {
@@ -158,8 +158,28 @@ td {
   transform: translateY(35%);
 }
 
-@media screen and (min-width: 1342px) {
+@media only screen and (max-width: 900px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .second-search {
+    height: 35px;
+    width: 12rem;
+  }
+
+  .second-searchbar {
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+  }
+
   .poke-row {
-    width: 22%;
+    margin: 13px;
+  }
+
+  table {
+    margin: 5px;
   }
 }
