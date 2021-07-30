@@ -24,57 +24,30 @@ function openModal(event) {
 }
 $click.addEventListener('click', openModal);
 
-function Pokemonew(name, sprite, hp, atk, def, spatk, spdef, spd) {
-  this.name = name;
-  this.sprite = sprite;
-  this.hp = hp;
-  this.atk = atk;
-  this.def = def;
-  this.spatk = spatk;
-  this.spdef = spdef;
-  this.spd = spd;
-}
-
 function getPokemonData(name) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + name);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    // console.log(xhr.status);
-    // console.log(xhr.response);
-    var pokemonName = xhr.response.name;
-    // console.log(pokemonName);
-    var sprite = xhr.response.sprites.other['official-artwork'].front_default;
-    // console.log(sprite);
-    var stats = [];
-    for (var i = 0; i < xhr.response.stats.length; i++) {
-      stats.push(xhr.response.stats[i].base_stat);
-      // console.log(xhr.response.stats[i]);
-    }
-    var pokemon = new Pokemonew(
-      pokemonName,
-      sprite,
-      stats[0],
-      stats[1],
-      stats[2],
-      stats[3],
-      stats[4],
-      stats[5]
-    );
-    addEntry(
-      pokemon.name,
-      pokemon.sprite,
-      pokemon.hp,
-      pokemon.atk,
-      pokemon.def,
-      pokemon.spatk,
-      pokemon.spdef,
-      pokemon.spd
-    );
+
+    var pokemon = xhr.response;
+
+    var newPokemon = {
+      name: pokemon.name,
+      sprite: pokemon.sprites.other['official-artwork'].front_default,
+      health: pokemon.stats[0].base_stat,
+      attack: pokemon.stats[1].base_stat,
+      defend: pokemon.stats[2].base_stat,
+      specialAtk: pokemon.stats[3].base_stat,
+      specialDef: pokemon.stats[4].base_stat,
+      speed: pokemon.stats[5].base_stat
+    };
+
+    addEntry(newPokemon);
   });
   xhr.send();
 }
-function addEntry(name, sprite, hp, atk, def, spatk, spdef, spd) {
+function addEntry(newPokemon) {
   var row = document.createElement('div');
   row.className = 'poke-row';
 
@@ -111,11 +84,11 @@ function addEntry(name, sprite, hp, atk, def, spatk, spdef, spd) {
   var newsprite = document.createElement('img');
   column.appendChild(newsprite);
   newsprite.className = 'pokemonimg';
-  newsprite.setAttribute('src', sprite);
+  newsprite.setAttribute('src', newPokemon.sprite);
 
   var newname = document.createElement('p');
   column.appendChild(newname);
-  newname.textContent = name.charAt(0).toUpperCase() + name.substring(1);
+  newname.textContent = newPokemon.name.charAt(0).toUpperCase() + newPokemon.name.substring(1);
 
   var tablecontain = document.createElement('div');
   tablecontain.className = 'table';
@@ -129,33 +102,33 @@ function addEntry(name, sprite, hp, atk, def, spatk, spdef, spd) {
 
   var health = document.createElement('td');
   rowOne.appendChild(health);
-  health.textContent = `HP: ${hp}`;
+  health.textContent = `HP: ${newPokemon.health}`;
 
   var attack = document.createElement('td');
   rowOne.appendChild(attack);
-  attack.textContent = `Atk: ${atk}`;
+  attack.textContent = `Atk: ${newPokemon.attack}`;
 
   var rowTwo = document.createElement('tr');
   table.appendChild(rowTwo);
 
   var speed = document.createElement('td');
   rowTwo.appendChild(speed);
-  speed.textContent = `Spd: ${spd}`;
+  speed.textContent = `Spd: ${newPokemon.speed}`;
 
   var specialAtk = document.createElement('td');
   rowTwo.appendChild(specialAtk);
-  specialAtk.textContent = `SpAtk: ${spatk}`;
+  specialAtk.textContent = `SpAtk: ${newPokemon.specialAtk}`;
 
   var rowThree = document.createElement('tr');
   table.appendChild(rowThree);
 
   var defense = document.createElement('td');
   rowThree.appendChild(defense);
-  defense.textContent = `Def: ${def}`;
+  defense.textContent = `Def: ${newPokemon.defend}`;
 
   var specialDef = document.createElement('td');
   rowThree.appendChild(specialDef);
-  specialDef.textContent = `SpDef: ${spdef}`;
+  specialDef.textContent = `SpDef: ${newPokemon.specialDef}`;
 
-  $main.appendChild(row);
+  return $main.appendChild(row);
 }
