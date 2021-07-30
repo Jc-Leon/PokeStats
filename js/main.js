@@ -21,6 +21,7 @@ $click.addEventListener('click', function (event) {
 });
 function openModal(event) {
   $modal.className = 'modal';
+
 }
 $click.addEventListener('click', openModal);
 
@@ -43,7 +44,7 @@ function getPokemonData(name) {
       speed: pokemon.stats[5].base_stat
     };
 
-    addEntry(newPokemon);
+    $main.appendChild(addEntry(newPokemon));
   });
   xhr.send();
 }
@@ -130,5 +131,5 @@ function addEntry(newPokemon) {
   rowThree.appendChild(specialDef);
   specialDef.textContent = `SpDef: ${newPokemon.specialDef}`;
 
-  return $main.appendChild(row);
+  return row;
 }
