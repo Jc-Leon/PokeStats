@@ -18,20 +18,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 17rem 0;
+  margin-top: 15rem;
+}
+
+.new-main-header-search {
+  display: flex;
 }
 
 .main-pika {
   border: transparent;
   background-color: transparent;
   cursor: pointer;
-  flex-basis: 17%;
 }
 
 .main-searchbar {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-left: 3rem;
 }
 
 .main-search {
@@ -40,16 +44,21 @@
   border-radius: 10px;
   border: solid black 2px;
   font-size: 15px;
-  flex-basis: 25%;
 }
 
 .main-pika img {
-  width: 100%;
+  width: 6vw;
 }
 
 .main-head {
   width: auto;
-  height: 100px;
+  height: 10vh;
+}
+
+.new-main-head {
+  width: auto;
+  height: 10vh;
+  padding-right: 20rem;
 }
 
 ::placeholder {
@@ -61,44 +70,12 @@
   display: none;
 }
 
-.second-head {
-  width: auto;
-  height: 83px;
-}
-
-.second-searchbar {
-  display: flex;
-  align-items: center;
-  padding-left: 10rem;
-}
-
-.second-search {
-  height: 35px;
-  width: 20rem;
-  background-color: transparent;
-  border-radius: 10px;
-  border: solid black 2px;
-  font-size: 15px;
-}
-
-.second-pika img {
-  width: 74px;
-  height: auto;
-}
-
-.second-pika {
-  border: transparent;
-  background-color: transparent;
-  cursor: pointer;
-}
-
 .container {
   display: flex;
   justify-content: center;
 }
 
 .row {
-  display: flex;
   align-items: center;
 }
 
@@ -119,7 +96,6 @@
 }
 
 .poke-row {
-  display: flex;
   justify-content: center;
   background-color: rgba(220, 38, 38, 0.5);
   border: none;
@@ -159,20 +135,16 @@ td {
 }
 
 @media only screen and (max-width: 900px) {
-  .row {
+  .new-main-head {
+    width: auto;
+    height: 10vh;
+    padding: 0;
+  }
+
+  .new-main-header-search {
     display: flex;
     flex-direction: column;
-  }
-
-  .second-search {
-    height: 35px;
-    width: 12rem;
-  }
-
-  .second-searchbar {
-    display: flex;
     align-items: center;
-    padding-left: 2rem;
   }
 
   .poke-row {
@@ -181,5 +153,9 @@ td {
 
   table {
     margin: 5px;
+  }
+
+  .main-pika img {
+    width: 10vw;
   }
 }
