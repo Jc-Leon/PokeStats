@@ -97,8 +97,7 @@ function addEntry(newPokemon) {
 
   var newname = document.createElement('p');
   column.appendChild(newname);
-  newname.textContent =
-    newPokemon.name.charAt(0).toUpperCase() + newPokemon.name.substring(1);
+  newname.textContent = newPokemon.name.charAt(0).toUpperCase() + newPokemon.name.substring(1);
 
   var tablecontain = document.createElement('div');
   tablecontain.className = 'table';
