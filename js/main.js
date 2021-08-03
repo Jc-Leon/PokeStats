@@ -1,36 +1,44 @@
 var $click = document.querySelector('.main-pika');
-var $modal = document.querySelector('.modal');
 var $main = document.querySelector('.container');
 var $search = document.querySelector('.main-search');
+var $views = document.querySelectorAll('.view');
+var $switch = document.querySelector('body');
+var $title = document.querySelector('.main-header-search');
+var $head = document.querySelector('.main-head');
 
 $search.addEventListener('search', searchFunction);
 
 function searchFunction() {
   var searchValue = document.querySelector('.main-search');
   getPokemonData(searchValue.value);
+  document.getElementById('refresh').value = '';
 }
 
 $click.addEventListener('click', searchFunction);
 
 $click.addEventListener('click', function (event) {
-  var screen = document.body;
-  var $main = document.querySelector('.main-header-search');
-
-  screen.classList.toggle('switch-out');
-  $main.classList.toggle('hidden');
+  $switch.className = 'switch-out';
+  $title.className = 'new-main-header-search';
+  $head.className = 'new-main-head';
+  showView('pokePair');
 });
-function openModal(event) {
-  $modal.className = 'modal';
 
+function showView(viewMode) {
+  for (var i = 0; i < $views.length; i++) {
+    var view = $views[i];
+    if (view.getAttribute('data-view') === viewMode) {
+      view.className = 'view';
+    } else {
+      view.className = 'view hidden';
+    }
+  }
 }
-$click.addEventListener('click', openModal);
 
 function getPokemonData(name) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + name);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-
     var pokemon = xhr.response;
 
     var newPokemon = {

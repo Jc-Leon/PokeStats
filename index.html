@@ -10,42 +10,25 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body class="switch">
-    <div class="frontpage">
-      <div class="main-header-search">
-        <img class="main-head" src="./images/Pokestats.png" alt="pokestats" />
-        <div class="main-searchbar">
-          <input
-            class="main-search"
-            placeholder="Who will you choose?"
-            type="search"
-            name=""
-            id=""
-          />
-          <button class="main-pika">
-            <img src="./images/Detect.png" alt="" />
-          </button>
-        </div>
+    <div class="view" data-view="frontpage"></div>
+    <div class="main-header-search">
+      <img class="main-head" src="./images/Pokestats.png" alt="pokestats" />
+      <div class="main-searchbar">
+        <input
+          class="main-search"
+          placeholder="Who will you choose?"
+          type="search"
+          name=""
+          id="refresh"
+        />
+        <button class="main-pika">
+          <img src="./images/Detect.png" alt="" />
+        </button>
       </div>
     </div>
-    <div class="modal hidden">
+
+    <div class="view" data-view="pokePair">
       <div class="modal-content">
-        <div class="row">
-          <div>
-            <img class="second-head" src="./images/Pokestats.png" alt="" />
-          </div>
-          <div class="second-searchbar">
-            <input
-              class="second-search"
-              placeholder="Who will you choose next?"
-              type="text"
-              name=""
-              id=""
-            />
-            <button class="second-pika">
-              <img src="./images/Detect.png" alt="" />
-            </button>
-          </div>
-        </div>
         <div class="container main"></div>
       </div>
     </div>
