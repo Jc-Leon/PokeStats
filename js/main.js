@@ -88,6 +88,7 @@ function addEntry(newPokemon) {
 
   var imgtwo = document.createElement('img');
   buttontwo.appendChild(imgtwo);
+  imgtwo.className = 'exit';
   imgtwo.setAttribute('src', '/images/x2.png');
 
   var newsprite = document.createElement('img');
@@ -141,3 +142,10 @@ function addEntry(newPokemon) {
 
   return row;
 }
+$main.addEventListener('click', function (event) {
+  if (event.target.className !== 'exit') {
+    return;
+  }
+  var $list = event.target.closest('.poke-row');
+  $list.remove();
+});
