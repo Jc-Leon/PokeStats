@@ -88,6 +88,7 @@ function addEntry(newPokemon) {
 
   var imgtwo = document.createElement('img');
   buttontwo.appendChild(imgtwo);
+  imgtwo.className = 'exit';
   imgtwo.setAttribute('src', '/images/x2.png');
 
   var newsprite = document.createElement('img');
@@ -97,7 +98,8 @@ function addEntry(newPokemon) {
 
   var newname = document.createElement('p');
   column.appendChild(newname);
-  newname.textContent = newPokemon.name.charAt(0).toUpperCase() + newPokemon.name.substring(1);
+  newname.textContent =
+    newPokemon.name.charAt(0).toUpperCase() + newPokemon.name.substring(1);
 
   var tablecontain = document.createElement('div');
   tablecontain.className = 'table';
@@ -141,3 +143,10 @@ function addEntry(newPokemon) {
 
   return row;
 }
+$main.addEventListener('click', function (event) {
+  if (event.target.className !== 'exit') {
+    return;
+  }
+  var $list = event.target.closest('.poke-row');
+  $list.remove();
+});
