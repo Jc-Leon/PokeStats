@@ -78,7 +78,7 @@ function addEntry(newPokemon) {
   var imgOne = document.createElement('img');
   buttonOne.appendChild(imgOne);
   imgOne.className = 'love';
-  imgOne.setAttribute('src', './images/CloseHeart.jpeg');
+  imgOne.setAttribute('src', '../images/CloseHeart.jpeg');
 
   var exit = document.createElement('div');
   exit.className = 'close';
@@ -90,7 +90,7 @@ function addEntry(newPokemon) {
   var imgtwo = document.createElement('img');
   buttontwo.appendChild(imgtwo);
   imgtwo.className = 'exit';
-  imgtwo.setAttribute('src', '/images/x2.png');
+  imgtwo.setAttribute('src', '../images/x2.png');
 
   var newsprite = document.createElement('img');
   column.appendChild(newsprite);
@@ -157,6 +157,6 @@ $main.addEventListener('click', function (event) {
   if (event.target.className !== 'love') {
     return;
   }
-  var $list = event.target.closest('.poke-row');
-  $list.remove();
+  var fave = event.target.closest('.love');
+  fave.setAttribute('src', './images/FullHeart.png');
 });
