@@ -1,5 +1,5 @@
 .switch {
-  background-image: url(../images/homeintro.GIF);
+  background-image: url('../images/homeintro.GIF');
   min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
@@ -7,7 +7,7 @@
 }
 
 .switch-out {
-  background-image: url(../images/displayback.GIF);
+  background-image: url('../images/displayback.GIF');
   min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
